@@ -1,20 +1,22 @@
 from typing import Union
 import sqlite3
+import datetime
 
 from fastapi import FastAPI
 
-class Customer:
-    def __init__(self, first_name, last_name, email, phone, address, city, state, zip_code, registration_date, customer_type):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.email = email
-        self.phone = phone
-        self.address = address
-        self.city = city
-        self.state = state
-        self.zip_code = zip_code
-        self.registration_date = registration_date
-        self.customer_type = customer_type
+from pydantic import BaseModel
+
+class Customer(BaseModel):
+    first_name: str
+    last_name: str
+    email: str
+    phone: str
+    address: str
+    city: str
+    state: str
+    zip_code: str
+    registration_date: datetime.date
+    customer_type: str
 
 app = FastAPI()
 
@@ -38,17 +40,8 @@ def read_customers():
     connection.close()
     return result
 
-@app.post("/customer")
-def create_customer(customer):
-    stmt = "INSERT INTO customers (first_name, last_name, email, phone, address, city, state, zip_code, registration_date, customer_type) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-    connection = sqlite3.connect('business_data.db')
-    connection.row_factory = sqlite3.Row
-    cur = connection.cursor()
-    res = cur.execute(stmt, customer)
-    customer_id = res.lastrowid
-    connection.close()
     
-    return {"customer_id": customer_id, "message": "Customer created successfully"}
+
     
 
 
