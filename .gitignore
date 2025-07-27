@@ -1,0 +1,53 @@
+# 🐍 Virtuelle Umgebungen
+.venv/
+venv/
+vinv/
+ENV/
+env/
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# 📒 Jupyter Notebooks Checkpoints
+.ipynb_checkpoints/
+
+# 🗃 Jupyter Kernel und Metadata
+*.ipynb-meta
+*.ipynb-kernel.json
+
+# 📂 IDE & Editor Stuff
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 📦 Paket-Manager-Dateien (optional, wenn du sie nicht versionieren willst)
+poetry.lock
+Pipfile.lock
+
+# 🧪 Test-Umgebungen
+.tox/
+.coverage
+coverage.xml
+htmlcov/
+pytest_cache/
+
+# 💾 Log- und temporäre Dateien
+*.log
+*.tmp
+*.DS_Store
+Thumbs.db
+
+# 📊 Daten (nur wenn du lokale Daten nicht versionieren willst)
+*.csv
+*.tsv
+*.sqlite3
+*.db
+*.h5
+*.json
+
+# 📦 Build-Ordner (wenn du Pakete baust)
+build/
+dist/
+*.egg-info/
